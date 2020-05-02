@@ -1,3 +1,16 @@
+const createExpelEventListeners = () => {
+
+  document.querySelectorAll('.expelButton').forEach(item => {
+    item.addEventListener('click', expelStudent);
+  });
+};
+
+const printToDom = (selector, domString) => {
+  document.getElementById(selector).innerHTML = domString;
+
+  createExpelEventListeners();
+}
+
 const showFirstYearForm = () => {
   document.getElementById('firstYearFormContainer').classList.remove('d-none');
 }
