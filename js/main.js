@@ -1,3 +1,7 @@
+const printToDom = (selector, domString) => {
+  document.getElementById(selector).innerHTML = domString;
+}
+
 const showFirstYearForm = () => {
   document.getElementById('firstYearFormContainer').classList.remove('d-none');
 }
