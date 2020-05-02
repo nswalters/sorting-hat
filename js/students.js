@@ -47,6 +47,19 @@ const sortStudent = (studentName) => {
   buildStudentCards(school.students);
 }
 
+const sanitize = (string) => {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    "/": '&#x2F;',
+  };
+  const reg = /[&<>"'/]/ig;
+  return string.replace(reg, (match) => (map[match]));
+}
+
 const validateStudent = (event) => {
   // Prevent any default actions (such as submitting the form when Enter is pressed, which resets the page)
   event.preventDefault();
@@ -54,11 +67,8 @@ const validateStudent = (event) => {
   // Reset any error messages that might be showing
   document.getElementById('studentHelp').textContent = "";
 
-  // Get the current student name in the text field
-  const studentName = document.getElementById('studentName').value;
-
-  // TODO: Sanitize studentName as it is user input!
-  // --sanitize--
+  // Get the current student name in the text field and sanitize the input
+  const studentName = sanitize(document.getElementById('studentName').value);
 
   // Check if the student name was blank, if so, create error message
   if (studentName.trim() == '') {
