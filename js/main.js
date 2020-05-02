@@ -55,7 +55,10 @@ const sortStudent = (studentName) => {
   buildStudentCards(students);
 }
 
-const validateStudent = () => {
+const validateStudent = (event) => {
+  // Prevent any default actions (such as submitting the form when Enter is pressed, which resets the page)
+  event.preventDefault();
+
   // Reset any error messages that might be showing
   document.getElementById('studentHelp').textContent = ""
 
@@ -79,6 +82,7 @@ const showFirstYearForm = () => {
 const createEventListeners = () => {
   document.getElementById('startSortingButton').addEventListener('click', showFirstYearForm);
   document.getElementById('sortStudentButton').addEventListener('click', validateStudent);
+  document.getElementById('studentForm').addEventListener('submit', validateStudent);
 }
 
 const init = () => {
