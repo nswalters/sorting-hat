@@ -1,5 +1,5 @@
 // START students state as part of the 'school'
-school = {
+let school = {
   students: [],
   nextStudentID: 1
 }
@@ -33,7 +33,7 @@ const assignHouse = (student) => {
 
 const sortStudent = (studentName) => {
 
-  student = {
+  let student = {
     name: studentName,
     isExpelled: false,
     house: null,
@@ -55,7 +55,7 @@ const validateStudent = (event) => {
   document.getElementById('studentHelp').textContent = "";
 
   // Get the current student name in the text field
-  studentName = document.getElementById('studentName').value;
+  const studentName = document.getElementById('studentName').value;
 
   // TODO: Sanitize studentName as it is user input!
   // --sanitize--

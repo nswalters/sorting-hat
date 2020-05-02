@@ -15,7 +15,7 @@ const buildStudentCard = (studentName, houseName, studentID) => {
 
 const buildStudentCards = (studentsArray) => {
 
-  domString = '';
+  let domString = '';
 
   studentsArray.forEach(student => {
     domString += buildStudentCard(student.name, student.house, student.id);
