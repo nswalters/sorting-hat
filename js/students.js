@@ -1,10 +1,9 @@
-students = [];
-
-const printToDom = (selector, domString) => {
-
-  document.getElementById(selector).innerHTML = domString;
-
+// START students state as part of the 'school'
+school = {
+  students: [],
+  nextStudentID: 1
 }
+// END students state
 
 const assignHouse = (student) => {
   const HOUSES = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
@@ -22,12 +21,13 @@ const sortStudent = (studentName) => {
     name: studentName,
     isExpelled: false,
     house: null,
+    id: school.nextStudentID += 1
   }
 
-  students.push(assignHouse(student));
+  school.students.push(assignHouse(student));
 
   // re-build student cards
-  buildStudentCards(students);
+  buildStudentCards(school.students);
 }
 
 const validateStudent = (event) => {
