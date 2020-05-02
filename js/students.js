@@ -1,5 +1,3 @@
-// NOTES: global array is required, however using GETTERS and SETTERS we can update the array properly
-
 students = [];
 
 const printToDom = (selector, domString) => {
