@@ -5,6 +5,22 @@ school = {
 }
 // END students state
 
+const expelStudent = (event) => {
+
+  const expelledStudentID = event.target.id;
+
+  // find student with matching id
+  school.students.forEach(student => {
+    if (student.id == expelledStudentID) {
+      // remove that student from the array
+      school.students.splice(school.students.indexOf(student), 1);
+    }
+  });
+
+  // re-build dom with new student array 
+  buildStudentCards(school.students);
+}
+
 const assignHouse = (student) => {
   const HOUSES = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
 
@@ -21,10 +37,11 @@ const sortStudent = (studentName) => {
     name: studentName,
     isExpelled: false,
     house: null,
-    id: school.nextStudentID += 1
+    id: school.nextStudentID
   }
 
   school.students.push(assignHouse(student));
+  school.nextStudentID += 1;
 
   // re-build student cards
   buildStudentCards(school.students);
@@ -35,7 +52,7 @@ const validateStudent = (event) => {
   event.preventDefault();
 
   // Reset any error messages that might be showing
-  document.getElementById('studentHelp').textContent = ""
+  document.getElementById('studentHelp').textContent = "";
 
   // Get the current student name in the text field
   studentName = document.getElementById('studentName').value;
