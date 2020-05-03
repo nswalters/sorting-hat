@@ -1,3 +1,22 @@
 .card {
   width: 18rem;
 }
+
+.house-Gryffindor {
+  background-color: #7F0909;
+  color: #FFC500;
+}
+
+.house-Ravenclaw {
+  background-color: #222F5B;
+  color: #946B2D;
+}
+
+.house-Slytherin {
+  background-color: #0D6217;
+  color: #AAA;
+}
+
+.house-Hufflepuff {
+  background-color: #EEE117;
+}
