@@ -1,7 +1,8 @@
 // START students state as part of the 'school'
 let school = {
   students: [],
-  nextStudentID: 1
+  nextStudentID: 1,
+  expelledStudents: []
 }
 // END students state
 
@@ -12,13 +13,21 @@ const expelStudent = (event) => {
   // find student with matching id
   school.students.forEach(student => {
     if (student.id == expelledStudentID) {
-      // remove that student from the array
+
+      // Flag that student as expelled
+      student.isExpelled = true;
+
+      // remove that student from the students array
       school.students.splice(school.students.indexOf(student), 1);
+
+      // add that student to the expelledStudents array
+      school.expelledStudents.push(student);
     }
   });
 
   // re-build dom with new student array 
   buildStudentCards(school.students);
+  buildExpelledStudentCards(school.expelledStudents);
 }
 
 const assignHouse = (student) => {
