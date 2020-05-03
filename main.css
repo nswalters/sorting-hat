@@ -20,3 +20,7 @@
 .house-Hufflepuff {
   background-color: #EEE117;
 }
+
+.expelled {
+  filter: invert(100%);
+}
